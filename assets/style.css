@@ -1,0 +1,245 @@
+/* Flavia Fottuta - foglio di stile unico */
+:root {
+  --carta: #FFF7E6;
+  --carta2: #FFFFFF;
+  --inchiostro: #1B1424;
+  --tenue: #5A4E66;
+  --giallo: #FFD23F;
+  --rosa: #FF3D7F;
+  --rosa-scuro: #C2185B;
+  --blu: #2D6CDF;
+  --verde: #0E9F6E;
+  --viola: #7B2CBF;
+  --arancio: #FF7A1A;
+  --bordo: #1B1424;
+  --raggio: 18px;
+  --ombra: 5px 5px 0 var(--bordo);
+  --titoli: Impact, "Arial Black", "Helvetica Neue", Haettenschweiler, sans-serif;
+  --testo: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color-scheme: light;
+}
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  margin: 0; background: var(--carta); color: var(--inchiostro);
+  font-family: var(--testo); font-size: 1.15rem; line-height: 1.6;
+}
+img { max-width: 100%; height: auto; }
+a { color: var(--rosa-scuro); text-underline-offset: 3px; }
+a:hover { color: var(--viola); }
+:focus-visible { outline: 3px solid var(--blu); outline-offset: 2px; }
+h1, h2, h3 { font-family: var(--titoli); font-weight: 900; line-height: 1.1; letter-spacing: .5px; margin: 0 0 .5em; }
+h1 { font-size: clamp(2.2rem, 7vw, 4rem); }
+h2 { font-size: clamp(1.7rem, 4.5vw, 2.5rem); margin-top: 1.4em; }
+h3 { font-size: 1.5rem; }
+p { margin: 0 0 1em; }
+.contenitore { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+.salta { position: absolute; left: -999px; top: 0; background: var(--giallo); padding: 8px 14px; z-index: 10; }
+.salta:focus { left: 8px; }
+
+/* avviso adulti */
+.avviso {
+  background: var(--inchiostro); color: #fff; text-align: center;
+  padding: 10px 16px; font-size: 1rem; font-weight: 600;
+}
+.avviso strong { color: var(--giallo); }
+
+/* testata */
+.testata { background: var(--giallo); border-bottom: 4px solid var(--bordo); }
+.testata .contenitore { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-top: 12px; padding-bottom: 12px; }
+.logo {
+  font-family: var(--titoli); font-size: 2rem; color: var(--inchiostro); text-decoration: none;
+  line-height: 1; display: inline-flex; align-items: center; gap: 10px;
+}
+.logo svg { width: 44px; height: 44px; flex: none; }
+.logo span { color: var(--rosa-scuro); }
+.menu { display: flex; flex-wrap: wrap; gap: 8px; }
+.menu a {
+  font-weight: 800; text-decoration: none; color: var(--inchiostro); background: #fff;
+  border: 3px solid var(--bordo); border-radius: 999px; padding: 6px 14px; font-size: 1rem;
+}
+.menu a:hover, .menu a[aria-current="page"] { background: var(--rosa); color: #fff; }
+
+/* hero */
+.hero { padding: 36px 0 18px; }
+.hero h1 { color: var(--inchiostro); }
+.hero h1 .evid { color: var(--rosa); -webkit-text-stroke: 0; }
+.sotto { font-size: 1.3rem; max-width: 760px; }
+.bottoni { display: flex; flex-wrap: wrap; gap: 12px; margin: 18px 0 8px; }
+.btn {
+  display: inline-block; font-family: var(--titoli); font-size: 1.25rem; letter-spacing: .5px;
+  text-decoration: none; color: var(--inchiostro); background: var(--giallo);
+  border: 3px solid var(--bordo); border-radius: 14px; padding: 10px 18px; box-shadow: var(--ombra);
+  cursor: pointer; transition: transform .08s;
+}
+.btn:hover { transform: translate(-2px, -2px); color: var(--inchiostro); }
+.btn:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--bordo); }
+.btn.rosa { background: var(--rosa); color: #fff; }
+.btn.blu { background: var(--blu); color: #fff; }
+.btn.verde { background: var(--verde); color: #fff; }
+.btn.amazon { background: var(--arancio); color: #fff; }
+
+/* riquadri */
+.riquadro {
+  background: var(--carta2); border: 3px solid var(--bordo); border-radius: var(--raggio);
+  box-shadow: var(--ombra); padding: 20px; margin: 22px 0;
+}
+.riquadro.giallo { background: #FFF0B3; }
+.riquadro.rosa { background: #FFE0EB; }
+.briciole { font-size: .95rem; margin: 14px 0 0; color: var(--tenue); }
+.briciole a { color: var(--tenue); }
+
+/* griglia libri */
+.griglia { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 22px; margin: 18px 0; padding: 0; list-style: none; }
+.libro {
+  background: #fff; border: 3px solid var(--bordo); border-radius: var(--raggio); box-shadow: var(--ombra);
+  display: flex; flex-direction: column; overflow: hidden;
+}
+.libro .cop { background: #111; display: block; aspect-ratio: 458 / 600; }
+.libro .cop img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.libro .corpo { padding: 14px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.libro h3 { font-size: 1.3rem; margin: 0; }
+.libro p { font-size: 1rem; margin: 0; color: var(--tenue); }
+.libro .azioni { margin-top: auto; display: flex; flex-wrap: wrap; gap: 8px; padding-top: 6px; }
+.libro .btn { font-size: 1.05rem; padding: 7px 12px; box-shadow: 3px 3px 0 var(--bordo); }
+
+/* carte dialetti */
+.dialetti { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; padding: 0; list-style: none; }
+.dialetti a {
+  display: block; text-decoration: none; color: var(--inchiostro); background: #fff;
+  border: 3px solid var(--bordo); border-radius: var(--raggio); padding: 14px 16px; box-shadow: 4px 4px 0 var(--bordo);
+}
+.dialetti a:hover { background: var(--giallo); }
+.dialetti strong { font-family: var(--titoli); font-size: 1.35rem; display: block; font-weight: 900; }
+.dialetti span { font-size: 1rem; color: var(--tenue); }
+.dialetti li:nth-child(4n+1) a { border-left: 12px solid var(--rosa); }
+.dialetti li:nth-child(4n+2) a { border-left: 12px solid var(--blu); }
+.dialetti li:nth-child(4n+3) a { border-left: 12px solid var(--verde); }
+.dialetti li:nth-child(4n+4) a { border-left: 12px solid var(--viola); }
+
+/* dizionario */
+.cerca { position: sticky; top: 0; z-index: 5; background: var(--carta); padding: 12px 0; border-bottom: 3px dashed var(--bordo); }
+.cerca label { font-weight: 800; display: block; margin-bottom: 4px; }
+.cerca input {
+  width: 100%; font-size: 1.2rem; padding: 12px 14px; border: 3px solid var(--bordo);
+  border-radius: 12px; background: #fff; color: var(--inchiostro);
+}
+.cerca .conteggio { font-size: .95rem; color: var(--tenue); margin: 6px 0 0; }
+.alfabeto { display: flex; flex-wrap: wrap; gap: 6px; margin: 14px 0; padding: 0; list-style: none; }
+.alfabeto a, .alfabeto span {
+  display: inline-grid; place-items: center; width: 40px; height: 40px; font-family: var(--titoli); font-size: 1.2rem;
+  border: 3px solid var(--bordo); border-radius: 10px; text-decoration: none; color: var(--inchiostro); background: #fff;
+}
+.alfabeto a:hover { background: var(--giallo); }
+.alfabeto span, .alfabeto a.spento { opacity: .25; border-style: dashed; pointer-events: none; }
+.lettera h2 {
+  display: inline-block; background: var(--rosa); color: #fff; padding: 2px 16px; border: 3px solid var(--bordo);
+  border-radius: 12px; transform: rotate(-2deg); font-size: 2rem;
+}
+.voci { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px; }
+.voce {
+  background: #fff; border: 3px solid var(--bordo); border-radius: var(--raggio); padding: 16px 18px;
+  box-shadow: 4px 4px 0 var(--bordo); scroll-margin-top: 130px;
+}
+.voce h3 { font-size: 1.7rem; margin: 0 0 4px; color: var(--viola); }
+.voce .trad { font-weight: 800; font-size: 1.15rem; margin: 0 0 10px; }
+.voce dl { margin: 0; font-size: 1.02rem; }
+.voce dt { font-weight: 800; color: var(--rosa-scuro); font-size: .85rem; text-transform: uppercase; letter-spacing: .6px; }
+.voce dd { margin: 0 0 8px; }
+.voce dd.nota { font-style: italic; }
+.voce:target { background: #FFF0B3; }
+.nessuno { font-size: 1.2rem; font-weight: 700; }
+
+/* box libro */
+.box-libro {
+  display: grid; grid-template-columns: 150px 1fr; gap: 20px; align-items: center;
+  background: #FFF0B3; border: 3px solid var(--bordo); border-radius: var(--raggio); box-shadow: var(--ombra);
+  padding: 18px; margin: 34px 0;
+}
+.box-libro img { width: 150px; border: 3px solid var(--bordo); border-radius: 8px; display: block; background: #111; }
+.box-libro .etichetta { font-family: var(--titoli); color: var(--rosa-scuro); font-size: 1.1rem; margin: 0; }
+.box-libro h2 { margin: 2px 0 8px; font-size: 1.8rem; }
+.box-libro p { margin: 0 0 12px; }
+
+/* gioco */
+.quiz { background: #fff; border: 4px solid var(--bordo); border-radius: 22px; box-shadow: 7px 7px 0 var(--bordo); padding: 22px; margin: 22px 0; }
+.quiz .stato { display: flex; justify-content: space-between; gap: 10px; font-weight: 800; color: var(--tenue); flex-wrap: wrap; }
+.quiz .barra { height: 14px; border: 3px solid var(--bordo); border-radius: 999px; overflow: hidden; margin: 10px 0 18px; background: var(--carta); }
+.quiz .barra i { display: block; height: 100%; background: var(--rosa); width: 0; transition: width .3s; }
+.quiz .domanda { font-size: 1.2rem; margin: 0 0 4px; }
+.quiz .parola { font-family: var(--titoli); font-size: clamp(2.2rem, 9vw, 3.6rem); color: var(--viola); margin: 0 0 16px; line-height: 1.05; word-break: break-word; }
+.opzioni { display: grid; gap: 12px; }
+.opzioni button {
+  font: inherit; font-weight: 700; text-align: left; padding: 14px 16px; min-height: 56px;
+  background: var(--carta); color: var(--inchiostro); border: 3px solid var(--bordo); border-radius: 14px; cursor: pointer;
+}
+.opzioni button:hover:not(:disabled) { background: var(--giallo); }
+.opzioni button.giusta { background: #B8F2D6; border-color: var(--verde); }
+.opzioni button.sbagliata { background: #FFC9D6; border-color: var(--rosa-scuro); text-decoration: line-through; }
+.opzioni button:disabled { cursor: default; color: var(--inchiostro); }
+.esito { margin: 16px 0 0; font-size: 1.1rem; }
+.esito strong { font-family: var(--titoli); font-size: 1.4rem; font-weight: 900; }
+.finale { text-align: center; }
+.finale .punti { font-family: var(--titoli); font-size: clamp(3.5rem, 14vw, 6rem); color: var(--rosa); margin: 0; line-height: 1; }
+.finale .frase { font-size: 1.35rem; font-weight: 700; max-width: 640px; margin: 12px auto 18px; }
+
+/* tavole */
+.tavole { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 26px; margin: 20px 0; }
+.tavola { background: #fff; border: 3px solid var(--bordo); border-radius: var(--raggio); box-shadow: var(--ombra); padding: 14px; margin: 0; }
+.tavola svg { width: 100%; height: auto; display: block; border: 1px solid #ddd; background: #fff; }
+.tavola figcaption { padding-top: 12px; }
+.tavola figcaption h2 { margin: 0 0 6px; font-size: 1.7rem; }
+.tavola .bottoni { margin: 8px 0 0; }
+
+/* piede */
+.piede { background: var(--inchiostro); color: #fff; margin-top: 50px; padding: 30px 0 26px; border-top: 6px solid var(--rosa); }
+.piede a { color: var(--giallo); }
+.piede .link { display: flex; flex-wrap: wrap; gap: 8px 18px; padding: 0; list-style: none; margin: 0 0 18px; font-size: 1rem; }
+.piede .copy { font-weight: 700; margin: 0 0 6px; }
+.piede .piccolo { font-size: .9rem; color: #CFC6DA; margin: 0; }
+
+@media (max-width: 600px) {
+  body { font-size: 1.08rem; }
+  .logo { font-size: 1.7rem; }
+  .menu a { padding: 5px 11px; font-size: .95rem; }
+  .box-libro { grid-template-columns: 1fr; text-align: center; }
+  .box-libro img { margin: 0 auto; width: 160px; }
+  .voci { grid-template-columns: 1fr; }
+  .alfabeto a, .alfabeto span { width: 36px; height: 36px; font-size: 1.05rem; }
+  .riquadro, .quiz { padding: 16px; }
+}
+
+@media print {
+  @page { size: A4 portrait; margin: 10mm; }
+  body { background: #fff; }
+  .avviso, .testata, .piede, .salta, .noprint, .briciole, .box-libro, main > *:not(.tavole) { display: none !important; }
+  main .tavole { display: block; margin: 0; }
+  .tavola { border: 0; box-shadow: none; padding: 0; margin: 0; break-inside: avoid; page-break-inside: avoid; }
+  .tavola + .tavola { break-before: page; page-break-before: always; }
+  .tavola figcaption { display: none; }
+  .tavola svg { border: 0; width: 186mm; height: auto; max-height: 275mm; margin: 0 auto; }
+  body[data-stampa] .tavola { display: none; }
+  body[data-stampa="1"] #tavola-1, body[data-stampa="2"] #tavola-2 { display: block; break-before: auto; page-break-before: auto; }
+}
+
+/* Buoni proibiti (24/11/2026) */
+.novita, .libro-bp { display: grid; grid-template-columns: 150px 1fr; gap: 22px; align-items: start; }
+.nov-cop img { width: 150px; height: auto; border: 3px solid var(--inchiostro); border-radius: 8px; display: block; }
+.etichetta { font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; color: var(--rosa-scuro); margin: 0 0 6px; }
+.libro-bp ul { padding-left: 20px; }
+.buoni { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; margin: 16px 0 28px; }
+.buono { margin: 0; background: #fff; border: 3px solid var(--inchiostro); border-radius: 12px; padding: 8px; box-shadow: 4px 4px 0 var(--inchiostro); }
+.buono img { width: 100%; height: auto; display: block; border-radius: 6px; }
+.buono figcaption { font-size: .92rem; padding: 8px 4px 2px; }
+.buono.foglio img { max-height: 420px; width: auto; margin: 0 auto; }
+.buono.grande { max-width: 640px; margin: 0 auto; }
+.passi { padding-left: 22px; } .passi li { margin-bottom: 6px; }
+.faq details { background: #fff; border: 2px solid var(--inchiostro); border-radius: 10px; padding: 10px 14px; margin-bottom: 10px; }
+.faq summary { font-weight: 700; cursor: pointer; }
+.faq p { margin: 8px 0 2px; }
+.giorno { text-align: center; margin: 10px 0 30px; }
+.giorno .g-testo { max-width: 640px; margin: 14px auto 0; font-size: 1.05rem; }
+.giorno .bottoni { justify-content: center; }
+.giorno .g-nota { font-size: .92rem; color: var(--tenue); min-height: 1.4em; }
+@media (max-width: 600px) { .novita, .libro-bp { grid-template-columns: 1fr; } .nov-cop img { margin: 0 auto; width: 140px; } }
